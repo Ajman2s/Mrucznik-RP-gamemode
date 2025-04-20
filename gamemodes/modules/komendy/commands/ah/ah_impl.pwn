@@ -18,6 +18,7 @@
 //----------------------------------------------------*------------------------------------------------------//
 // Autor: mrucznik
 // Data utworzenia: 15.09.2024
+// Aktualizacja: 20.04.2025
 
 
 //
@@ -26,31 +27,51 @@
 command_ah_Impl(playerid)
 {
     SendClientMessage(playerid, COLOR_GREEN,"_______________________________________");
+
     if(PlayerInfo[playerid][pNewAP] > 0 || PlayerInfo[playerid][pZG] > 0 || PlayerInfo[playerid][pAdmin] > 0 || IsAScripter(playerid))
-	{
-		if(!PlayerInfo[playerid][pZG]) {
-			SendClientMessage(playerid, COLOR_GRAD1, "* WSZYSCY *** /tickets /login");
-			SendClientMessage(playerid, COLOR_GRAD1, "{FF6A6A}* System @DUTY *** {C0C0C0}/adminduty [NICK OOC] || /adminstats");
-		} else {
-			SendClientMessage(playerid, COLOR_GRAD1, "* WSZYSCY *** /tickets");
-		}
-	}
-	if(PlayerInfo[playerid][pZG] == 10) {
-		SendClientMessage(playerid, COLOR_GRAD1, "* ZAS�U�ONY *** /spec /slap /kick /aj /unaj /ban /block /warn /kill");
-		SendClientMessage(playerid, COLOR_GRAD1, "* ZAS�U�ONY *** /freeze /unfreeze /lockdown /zweryfikuj");
-		SendClientMessage(playerid, COLOR_GRAD2, sprintf("* Uprawnienia Zas�u�onych s� obecnie: %s", ZaufaniON ? ("w��czone") : ("wy��czone")));
-	}
-	if (PlayerInfo[playerid][pNewAP] >= 1 && PlayerInfo[playerid][pNewAP] <= 3)
-	{
-		SendClientMessage(playerid, COLOR_GRAD1, "*1-2-3* PӣADMIN *** /slap /aj /wybieralka /check /freeze /unfreeze /ucisz /kick");
-        SendClientMessage(playerid, COLOR_GRAD1, "*1-2-3* PӣADMIN *** /ban /to /spec /respawn /a(dmin) chat /cmdinfo /czyjtonumer");
-		SendClientMessage(playerid, COLOR_GRAD1, "*1-2-3* PӣADMIN *** /unbp /unbw /checkbw /setvw /diagnoza /checktank");
+    {
+        if(!PlayerInfo[playerid][pZG]) 
+        {
+            SendClientMessage(playerid, COLOR_GRAD1, "* WSZYSCY *** /tickets /login");
+            SendClientMessage(playerid, COLOR_GRAD1, "{FF6A6A}* System @DUTY *** {C0C0C0}/adminduty [NICK OOC] || /adminstats");
+        } else {
+            SendClientMessage(playerid, COLOR_GRAD1, "* WSZYSCY *** /tickets");
+        }
     }
-	if (PlayerInfo[playerid][pNewAP] == 4)
-	{
-		SendClientMessage(playerid, COLOR_GRAD1, "*4* PӣADMIN *** /check /sban /sblock /to /spec /a(dmin) chat");
-		SendClientMessage(playerid, COLOR_GRAD1, "*4* PӣADMIN *** /unbp /checktank");
-	}
+
+    if(PlayerInfo[playerid][pZG] == 10 || PlayerInfo[playerid][pZG] == 1) {
+        SendClientMessage(playerid, COLOR_GRAD1, "* ZG *** /mark /gotomark /flip /gotols /aj /unaj /kick /fixveh /tankveh /unbw");
+        SendClientMessage(playerid, COLOR_GRAD1, "* ZG *** /respawnplayer /respawncar /freeze /setvw /getvw /pogodaall /tod /bp");
+        SendClientMessage(playerid, COLOR_GRAD1, "* ZG *** /getcar /unbp /tp /undermogan /zweryfikuj /paj /forum /pojazdygracza");
+        SendClientMessage(playerid, COLOR_GRAD1, "* ZG *** /obrazenia /gethere");
+    }
+
+    if(PlayerInfo[playerid][pZG] == 10) {
+        SendClientMessage(playerid, COLOR_GRAD1, "* ZG 10 *** /logoutpl /gotocar");
+    }
+
+    if(PlayerInfo[playerid][pNewAP] > 0) {
+        SendClientMessage(playerid, COLOR_GRAD1, "* ZG *** /gotoszpital /gotosf /gotolv /gotobank /gotoin /rapidfly");
+    }
+
+    if(PlayerInfo[playerid][pZG] == 10) {
+        SendClientMessage(playerid, COLOR_GRAD1, "* ZASŁUŻONY *** /spec /slap /kick /aj /unaj /ban /block /warn /kill");
+        SendClientMessage(playerid, COLOR_GRAD1, "* ZASŁUŻONY *** /freeze /unfreeze /lockdown /zweryfikuj");
+        SendClientMessage(playerid, COLOR_GRAD2, sprintf("* Uprawnienia Zasłużonych są obecnie: %s", ZaufaniON ? ("włączone") : ("wyłączone")));
+    }
+
+    if (PlayerInfo[playerid][pNewAP] >= 1 && PlayerInfo[playerid][pNewAP] <= 3)
+    {
+        SendClientMessage(playerid, COLOR_GRAD1, "*1-2-3* PÓŁADMIN *** /slap /aj /wybieralka /check /freeze /unfreeze /ucisz /kick");
+        SendClientMessage(playerid, COLOR_GRAD1, "*1-2-3* PÓŁADMIN *** /ban /to /spec /respawn /a(dmin) chat /cmdinfo /czyjtonumer");
+        SendClientMessage(playerid, COLOR_GRAD1, "*1-2-3* PÓŁADMIN *** /unbp /unbw /checkbw /setvw /diagnoza /checktank");
+    }
+
+    if (PlayerInfo[playerid][pNewAP] == 4)
+    {
+        SendClientMessage(playerid, COLOR_GRAD1, "*4* PÓŁADMIN *** /check /sban /sblock /to /spec /a(dmin) chat");
+        SendClientMessage(playerid, COLOR_GRAD1, "*4* PÓŁADMIN *** /unbp /checktank");
+    }
     if (IsAScripter(playerid))
     {
         SendClientMessage(playerid, COLOR_GRAD1, "* SKRYPTER *** /respawn /(a) dmin chat /setint /getint /setvw /getvw");
@@ -87,7 +108,7 @@ command_ah_Impl(playerid)
 	}
 	if (PlayerInfo[playerid][pAdmin] == 7)
 	{
-		SendClientMessage(playerid, COLOR_GRAD1, "*4* ZAS�U�ONY *** /sban /sblock /skick /fixveh /sethp");
+		SendClientMessage(playerid, COLOR_GRAD1, "*4* ZASŁUŻONY *** /sban /sblock /skick /fixveh /sethp");
 	}
 	if (PlayerInfo[playerid][pAdmin] >= 10)
 	{
@@ -145,7 +166,7 @@ command_ah_Impl(playerid)
 	}
 	if (IsAHeadAdmin(playerid) || IsAScripter(playerid))
 	{
-		SendClientMessage(playerid, COLOR_WHITE,"*** Jeste� koxem przez X ***");
+		SendClientMessage(playerid, COLOR_WHITE,"*** Jeste koxem przez X ***");
         SendClientMessage(playerid, COLOR_GRAD6,"*** 5000 *** /zonedelay /gangzone /removezoneprotect /removeganglimit /clearzone /setzonecontrol");
 		SendClientMessage(playerid, COLOR_GRAD6,"*** 5000 *** /agraffiti /adajrange /antybh /dajlicencje /glosowanie /gotodom /gotobox");
 		SendClientMessage(playerid, COLOR_GRAD6,"*** 5000 *** /makeleader /makemember /msgbox /restart /setarmor /setserverpass /createbox");
