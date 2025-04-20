@@ -25,7 +25,7 @@
 //------------------<[ Implementacja: ]>-------------------
 command_gotobank_Impl(playerid)
 {
-    if(PlayerInfo[playerid][pAdmin] >= 1 || IsAScripter(playerid)) {
+    if(PlayerInfo[playerid][pAdmin] >= 1 || PlayerInfo[playerid][pNewAP] >= 1 || IsAScripter(playerid)) {
         SetPlayerInterior(playerid, 0);
         SetPlayerVirtualWorld(playerid, 0);
         if (GetPlayerState(playerid) == 2)
@@ -37,7 +37,7 @@ command_gotobank_Impl(playerid)
         {
             SetPlayerPos(playerid, 1464.0021,-1033.3855,23.6563);
         }
-        sendTipMessageEx(playerid, COLOR_GRAD1, "Zosta³eœ teleportowany ");
+        sendTipMessageEx(playerid, COLOR_GRAD1, "ZostaÂ³eÅ“ teleportowany ");
     }
     return 1;
 }
