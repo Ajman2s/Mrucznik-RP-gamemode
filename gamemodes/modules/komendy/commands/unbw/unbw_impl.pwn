@@ -25,15 +25,15 @@
 //------------------<[ Implementacja: ]>-------------------
 command_unbw_Impl(playerid, params[256])
 {
-    if(PlayerInfo[playerid][pAdmin] >= 1 || PlayerInfo[playerid][pNewAP] >= 1 || IsAScripter(playerid))
+    if(PlayerInfo[playerid][pAdmin] >= 1 || Zaufany(playerid) || PlayerInfo[playerid][pNewAP] >= 1 || IsAScripter(playerid))
 	{
 		new id;
-		if(sscanf(params, "k<fix>", id)) return sendTipMessage(playerid, "U¿yj /unbw [ID]");
+		if(sscanf(params, "k<fix>", id)) return sendTipMessage(playerid, "UÂ¿yj /unbw [ID]");
 		if(!IsPlayerConnected(id)) return sendErrorMessage(playerid, "Nie ma takiego gracza.");
 		if(PlayerInfo[id][pBW] <= 0 && PlayerInfo[id][pInjury] <= 0) return sendTipMessageEx(playerid, COLOR_GRAD2, "Ten gracz nie jest ranny.");
 		ZdejmijBW(id, 2000);
 		SetPlayerChatBubble(id, " ", 0xFF0000FF, 100.0, 1000);
-		SendClientMessage(playerid, COLOR_GRAD2, "Zdjêto BW.");
+		SendClientMessage(playerid, COLOR_GRAD2, "ZdjÃªto BW.");
 	}
     return 1;
 }
