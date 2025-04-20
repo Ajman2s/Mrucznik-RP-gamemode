@@ -32,7 +32,7 @@ command_gethere_Impl(playerid, params[256])
 		new plo;
 		if( sscanf(params, "k<fix>", plo))
 		{
-			sendTipMessage(playerid, "U¿yj /tm [playerid/CzêœæNicku]");
+			sendTipMessage(playerid, "UÂ¿yj /tm [playerid/CzÃªÅ“Ã¦Nicku]");
 			return 1;
 		}
 		new Float:plocx,Float:plocy,Float:plocz;
@@ -40,7 +40,7 @@ command_gethere_Impl(playerid, params[256])
 
 		if(plo != INVALID_PLAYER_ID)
 		{
-			if (PlayerInfo[playerid][pAdmin] >= 1 || IsAScripter(playerid))
+			if (PlayerInfo[playerid][pAdmin] >= 1 || IsAScripter(playerid || Zaufany(playerid))
 			{
 				GetPlayerPos(playerid, plocx, plocy, plocz);
 				if(IsPlayerInAnyVehicle(plo))
@@ -81,7 +81,7 @@ command_gethere_Impl(playerid, params[256])
 					PlayerInfo[plo][pLocal] = PlayerInfo[playerid][pLocal];
 				}
 
-				sendTipMessageEx(plo, COLOR_GRAD1, "Zosta³eœ teleportowany");
+				sendTipMessageEx(plo, COLOR_GRAD1, "ZostaÂ³eÅ“ teleportowany");
 				if(GetPlayerAdminDutyStatus(playerid) == 1)
 				{
 					iloscInne[playerid] = iloscInne[playerid]+1;
