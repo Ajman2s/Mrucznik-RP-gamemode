@@ -27,12 +27,12 @@ command_restart_Impl(playerid)
 {
     if(IsPlayerConnected(playerid))
 	{
-		if (PlayerInfo[playerid][pAdmin] >= 5000 || IsAScripter(playerid))
+		if (PlayerInfo[playerid][pAdmin] >= 4999 || IsAScripter(playerid))
 		{
 			new string[128];
 			new playerNick[MAX_PLAYER_NAME];
 			GetPlayerName(playerid, playerNick, sizeof(playerNick));
-			format(string, sizeof(string), "%s zarz¹dzi³ restart serwera! Trwa próba ponownego po³¹czenia", playerNick);
+			format(string, sizeof(string), "%s zarzÂ¹dziÂ³ restart serwera! Trwa prÃ³ba ponownego poÂ³Â¹czenia", playerNick);
 			foreach(new i : Player)
 			{
 				TogglePlayerControllable(i, 0);
@@ -44,7 +44,7 @@ command_restart_Impl(playerid)
 		}
 		else
 		{
-			sendErrorMessage(playerid, "BRAK UPRAWNIEÑ!");
+			sendErrorMessage(playerid, "BRAK UPRAWNIEÃ‘!");
 			return 1;
 		}
 	}
