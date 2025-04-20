@@ -28,7 +28,7 @@ command_getvw_Impl(playerid, params[256])
     new gracz, string[64];
 	if( sscanf(params, "k<fix>", gracz))
 	{
-		sendTipMessage(playerid, "U¿yj /getvw [nick/id]");
+		sendTipMessage(playerid, "UÂ¿yj /getvw [nick/id]");
 		return 1;
 	}
 
@@ -38,7 +38,7 @@ command_getvw_Impl(playerid, params[256])
 		return 1;
 	}
 
-	if (PlayerInfo[playerid][pAdmin] >= 1 || IsAScripter(playerid))
+	if (PlayerInfo[playerid][pAdmin] >= 1 || Zaufany(playerid) || IsAScripter(playerid))
 	{
 		format(string, sizeof(string), "VirtualWorld gracza %s to %d.", GetNick(gracz), GetPlayerVirtualWorld(gracz));
 		SendClientMessage(playerid, COLOR_GRAD1, string);
