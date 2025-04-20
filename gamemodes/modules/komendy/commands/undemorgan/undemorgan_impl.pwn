@@ -31,14 +31,14 @@ command_undemorgan_Impl(playerid, params[256])
 
     if(IsPlayerConnected(playerid))
     {
-        if(PlayerInfo[playerid][pAdmin] >= 1 || IsAScripter(playerid))
+        if(PlayerInfo[playerid][pAdmin] >= 1 || Zaufany(playerid) || IsAScripter(playerid))
         {
             
         
 			new giveplayerid;
 			if( sscanf(params, "k<fix>", giveplayerid))
 			{
-				sendTipMessage(playerid, "U¿yj /prisonoff [id/nick]");
+				sendTipMessage(playerid, "UÂ¿yj /prisonoff [id/nick]");
 				return 1;
 			}
 
@@ -48,11 +48,11 @@ command_undemorgan_Impl(playerid, params[256])
 				{
 					GetPlayerName(giveplayerid, giveplayer, sizeof(giveplayer));
 					GetPlayerName(playerid, sendername, sizeof(sendername));
-					format(string, sizeof(string), "* Uwolni³eœ %s z Fortu DeMorgan.", giveplayer);
+					format(string, sizeof(string), "* UwolniÂ³eÅ“ %s z Fortu DeMorgan.", giveplayer);
 					SendClientMessage(playerid, COLOR_LIGHTRED, string);
-					format(string, sizeof(string), "* Zosta³eœ uwolniony z DeMorgan przez admina %s.", sendername);
+					format(string, sizeof(string), "* ZostaÂ³eÅ“ uwolniony z DeMorgan przez admina %s.", sendername);
 					SendClientMessage(giveplayerid, COLOR_LIGHTRED, string);
-					format(string, sizeof(string), "* %s zosta³ uwolniony z DeMorgan przez admina %s.",giveplayer, sendername);
+					format(string, sizeof(string), "* %s zostaÂ³ uwolniony z DeMorgan przez admina %s.",giveplayer, sendername);
 					SendPunishMessage(string, giveplayerid);
 					UnJailDeMorgan(giveplayerid);
 					poscig[giveplayerid] = 0;
