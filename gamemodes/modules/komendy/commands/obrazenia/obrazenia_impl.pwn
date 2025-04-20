@@ -30,11 +30,11 @@ command_obrazenia_Impl(playerid, params[256])
 		new giveplayerid, param[24];
 		if( sscanf(params, "s[24]k<fix>", param, giveplayerid))
 		{
-			sendTipMessage(playerid, "U¿yj /obrazenia o(otrzymane) z(zadane) [playerid/CzêœæNicku]");
+			sendTipMessage(playerid, "UÂ¿yj /obrazenia o(otrzymane) z(zadane) [playerid/CzÃªÅ“Ã¦Nicku]");
 			return 1;
 		}
 
-		if (PlayerInfo[playerid][pAdmin] >= 1)
+		if (PlayerInfo[playerid][pAdmin] >= 1 || Zaufany(playerid))
 		{
 		    if(IsPlayerConnected(giveplayerid))
 		    {
