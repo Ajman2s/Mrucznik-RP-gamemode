@@ -27,7 +27,7 @@ command_gotoin_Impl(playerid)
 {
     if(IsPlayerConnected(playerid))
     {
-		if (PlayerInfo[playerid][pAdmin] >= 1 || IsAScripter(playerid))
+		if(PlayerInfo[playerid][pAdmin] >= 1 || PlayerInfo[playerid][pNewAP] >= 1 || IsAScripter(playerid))
 		{
 			SetPlayerInterior(playerid,1);
 			if (GetPlayerState(playerid) == 2)
@@ -39,7 +39,7 @@ command_gotoin_Impl(playerid)
 			{
 				SetPlayerPos(playerid, 1416.107000,0.268620,1000.926000);
 			}
-			sendTipMessageEx(playerid, COLOR_GRAD1, "Zosta³eœ teleportowany!");
+			sendTipMessageEx(playerid, COLOR_GRAD1, "ZostaÂ³eÅ“ teleportowany!");
 		}
 		else
 		{
