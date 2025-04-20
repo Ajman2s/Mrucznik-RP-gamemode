@@ -27,12 +27,12 @@ command_wyloguj_Impl(playerid)
 {
     if(IsPlayerConnected(playerid))
     {
-		if (PlayerInfo[playerid][pAdmin] >= 1)
+		if (PlayerInfo[playerid][pAdmin] >= 1 || PlayerInfo[playerid][pZG] == 10)
 		{
             MruMySQL_SaveAccount(playerid);
 			gPlayerLogged[playerid] = 0;
-			sendTipMessageEx(playerid, COLOR_GRAD1, "Wylogowa³eœ siê.");
-            Log(adminLog, INFO, "Admin %s wylogowa³ siê", GetPlayerLogName(playerid));
+			sendTipMessageEx(playerid, COLOR_GRAD1, "WylogowaÂ³eÅ“ siÃª.");
+            Log(adminLog, INFO, "Admin %s wylogowaÂ³ siÃª", GetPlayerLogName(playerid));
 		}
 		else
 		{
