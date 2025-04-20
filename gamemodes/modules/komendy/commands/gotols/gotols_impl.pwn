@@ -18,6 +18,7 @@
 //----------------------------------------------------*------------------------------------------------------//
 // Autor: mrucznik
 // Data utworzenia: 15.09.2024
+// Aktualizacja 20.04.2025
 
 
 //
@@ -27,7 +28,7 @@ command_gotols_Impl(playerid)
 {
     if(IsPlayerConnected(playerid))
     {
-		if(PlayerInfo[playerid][pAdmin] >= 1 || IsAScripter(playerid))
+		if (PlayerInfo[playerid][pAdmin] >= 1 || IsAScripter(playerid) || Zaufany(playerid))
 		{
 			SetPlayerInterior(playerid, 0);
 			SetPlayerVirtualWorld(playerid, 0);
@@ -40,7 +41,7 @@ command_gotols_Impl(playerid)
 			{
 				SetPlayerPos(playerid, 1529.6,-1691.2,13.3);
 			}
-			sendTipMessageEx(playerid, COLOR_GRAD1, "Zosta³eœ teleportowany !");
+			sendTipMessageEx(playerid, COLOR_GRAD1, "ZostaÂ³eÅ“ teleportowany !");
 		}
 		else
 		{
