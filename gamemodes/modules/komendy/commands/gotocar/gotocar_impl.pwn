@@ -30,11 +30,11 @@ command_gotocar_Impl(playerid, params[256])
 		new testcar;
 		if( sscanf(params, "d", testcar))
 		{
-			sendTipMessage(playerid, "U¿yj /gotocar [carid]");
+			sendTipMessage(playerid, "UÂ¿yj /gotocar [carid]");
 			return 1;
 		}
 
-		if (PlayerInfo[playerid][pAdmin] >= 1 || IsAScripter(playerid))
+		if (PlayerInfo[playerid][pAdmin] >= 1 || IsAScripter(playerid || PlayerInfo[playerid][pZG] == 10))
 		{
 			new Float:cwx2,Float:cwy2,Float:cwz2;
 			GetVehiclePos(testcar, cwx2, cwy2, cwz2);
@@ -50,7 +50,7 @@ command_gotocar_Impl(playerid, params[256])
 			{
 				SetPlayerPos(playerid, cwx2, cwy2, cwz2);
 			}
-			sendTipMessageEx(playerid, COLOR_GRAD1, "Zosta³eœ teleportowany!");
+			sendTipMessageEx(playerid, COLOR_GRAD1, "ZostaÂ³eÅ“ teleportowany!");
 		}
 		else
 		{
