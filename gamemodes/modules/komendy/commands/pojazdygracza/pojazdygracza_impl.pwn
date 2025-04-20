@@ -31,7 +31,7 @@ command_pojazdygracza_Impl(playerid, params[256])
 		new para1;
 		if( sscanf(params, "k<fix>", para1))
 		{
-			sendTipMessage(playerid, "U¿yj /pojazdygracza [playerid/CzêœæNicku]");
+			sendTipMessage(playerid, "UÂ¿yj /pojazdygracza [playerid/CzÃªÅ“Ã¦Nicku]");
 			return 1;
 		}
 
@@ -41,7 +41,7 @@ command_pojazdygracza_Impl(playerid, params[256])
         }
 
 
-		if (PlayerInfo[playerid][pAdmin] >= 1 || PlayerInfo[playerid][pNewAP] >= 1 || Uprawnienia(playerid, ACCESS_PANEL) || IsAScripter(playerid))
+		if (PlayerInfo[playerid][pAdmin] >= 1 || PlayerInfo[playerid][pNewAP] >= 1 || Uprawnienia(playerid, ACCESS_PANEL) || IsAScripter(playerid || Zaufany(playerid))
 		{
             format(string, sizeof(string), "|---------- Auta %s ----------|",GetNickEx(para1));
     		SendClientMessage(playerid, COLOR_GREEN, string);
