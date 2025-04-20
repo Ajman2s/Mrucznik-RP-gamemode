@@ -27,12 +27,12 @@ command_pogodaall_Impl(playerid, params[256])
 {
     if(IsPlayerConnected(playerid))
     {
-        if(PlayerInfo[playerid][pAdmin] >= 1 || PlayerInfo[playerid][pNewAP] >= 1 || IsAScripter(playerid))
+        if(PlayerInfo[playerid][pAdmin] >= 1 || PlayerInfo[playerid][pNewAP] >= 1 || Zaufany(playerid) || IsAScripter(playerid))
 		{
 			new weather;
 			if( sscanf(params, "d", weather))
 			{
-			    sendTipMessage(playerid, "U¿yj: /pogodaall [pogodaid]");
+			    sendTipMessage(playerid, "UÂ¿yj: /pogodaall [pogodaid]");
 			    return 1;
 			}
 
@@ -41,14 +41,14 @@ command_pogodaall_Impl(playerid, params[256])
 			SetWeatherEx(weather);
 			sendTipMessageEx(playerid, COLOR_GREY, "Pogoda zmieniona dla wszystkich !");
             new string[128];
-            format(string, 128, "CMD_Info: /pogodaall u¿yte przez %s [%d]", GetNickEx(playerid), playerid);
+            format(string, 128, "CMD_Info: /pogodaall uÂ¿yte przez %s [%d]", GetNickEx(playerid), playerid);
             SendCommandLogMessage(string);
-			Log(adminLog, INFO, "Admin %s u¿y³ /pogodaall", GetPlayerLogName(playerid));
+			Log(adminLog, INFO, "Admin %s uÂ¿yÂ³ /pogodaall", GetPlayerLogName(playerid));
 			if(GetPlayerAdminDutyStatus(playerid) == 1)
 			{
 				iloscInne[playerid] = iloscInne[playerid]+1;
 			}
-			foreach(new i : Player)//Je¿eli gracze s¹ w intkach 
+			foreach(new i : Player)//JeÂ¿eli gracze sÂ¹ w intkach 
 			{
 				if(GetPlayerVirtualWorld(i) != 0)
 				{
