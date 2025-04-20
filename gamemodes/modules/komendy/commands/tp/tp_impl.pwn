@@ -34,7 +34,7 @@ command_tp_Impl(playerid, params[256])
         new plo, plo1;
 		if( sscanf(params, "k<fix>k<fix>", plo1, plo))
 		{
-			sendTipMessage(playerid, "U¿yj /tp [playerid/CzêœæNicku] [playerid/CzêœæNicku]");
+			sendTipMessage(playerid, "UÂ¿yj /tp [playerid/CzÃªÅ“Ã¦Nicku] [playerid/CzÃªÅ“Ã¦Nicku]");
 			return 1;
 		}
 		new Float:plocx,Float:plocy,Float:plocz;
@@ -46,7 +46,7 @@ command_tp_Impl(playerid, params[256])
 				GetPlayerName(plo1, giveplayer01, sizeof(giveplayer01));
 				GetPlayerName(plo, giveplayer02, sizeof(giveplayer02));
 				
-				if (PlayerInfo[playerid][pAdmin] >= 1 || PlayerInfo[playerid][pNewAP] >= 1 || Uprawnienia(playerid, ACCESS_PANEL) || IsAScripter(playerid))
+				if (PlayerInfo[playerid][pAdmin] >= 1 || PlayerInfo[playerid][pNewAP] >= 1 || Uprawnienia(playerid, ACCESS_PANEL) || IsAScripter(playerid) || Zaufany(playerid))
 				{
 					if(Spectate[playerid] != INVALID_PLAYER_ID)
 					{
@@ -55,7 +55,7 @@ command_tp_Impl(playerid, params[256])
 					GetPlayerPos(plo, plocx, plocy, plocz);
 					SetPlayerInterior(plo1, GetPlayerInterior(plo));
 					SetPlayerVirtualWorld(plo1, GetPlayerVirtualWorld(plo));
-					format(string, sizeof(string), "Zosta³eœ teleportowany do %s (ID: %d) przez Admina %s.", giveplayer02, plo, GetNickEx(playerid));
+					format(string, sizeof(string), "ZostaÂ³eÅ“ teleportowany do %s (ID: %d) przez Admina %s.", giveplayer02, plo, GetNickEx(playerid));
 					SendClientMessage(plo1, COLOR_GRAD1, string);
 					format(string, sizeof(string), "Teleportowano tutaj %s (ID: %d) przez Admina %s.", giveplayer01, plo1, GetNickEx(playerid));
 					SendClientMessage(plo, COLOR_GRAD1, string);
