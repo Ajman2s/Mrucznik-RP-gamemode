@@ -25,9 +25,9 @@
 //------------------<[ Implementacja: ]>-------------------
 command_respawncar_Impl(playerid, params[256])
 {
-    if(PlayerInfo[playerid][pAdmin] < 1 && PlayerInfo[playerid][pNewAP] < 1) return 1;
+    if(PlayerInfo[playerid][pAdmin] < 1 && PlayerInfo[playerid][pNewAP] < 1 && !Zaufany(playerid)) return 1;
     new v;
-    if(sscanf(params, "d", v)) return sendTipMessage(playerid, "U¿yj /respawncar [ID pojazdu]");
+    if(sscanf(params, "d", v)) return sendTipMessage(playerid, "UÂ¿yj /respawncar [ID pojazdu]");
     if(!(0 < v < MAX_VEHICLES)) return 1;
     if(GetVehicleModel(v) == 0) return sendErrorMessage(playerid, "Niepoprawne ID pojazdu.");
     new bool:used=false;
@@ -42,7 +42,7 @@ command_respawncar_Impl(playerid, params[256])
     if(used) return sendErrorMessage(playerid, "Pojazd nie jest pusty");
     else
     {
-        Log(adminLog, INFO, "Admin %s respawnowa³ pojazd %s", GetPlayerLogName(playerid), GetVehicleLogName(v));
+        Log(adminLog, INFO, "Admin %s respawnowaÂ³ pojazd %s", GetPlayerLogName(playerid), GetVehicleLogName(v));
         RespawnVehicleEx(v);
 	    if(Car_GetOwnerType(v) == CAR_OWNER_PLAYER)
 	    {
