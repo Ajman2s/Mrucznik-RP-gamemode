@@ -26,9 +26,9 @@
 command_respawnplayer_Impl(playerid, params[256])
 {
     //walidacja
-    if(PlayerInfo[playerid][pAdmin] < 1 && PlayerInfo[playerid][pNewAP] < 1) return 1;
+    if(PlayerInfo[playerid][pAdmin] < 1 && PlayerInfo[playerid][pNewAP] < 1 && !Zaufany(playerid)) return 1;
     new v;
-    if(sscanf(params, "k<fix>", v)) return sendTipMessage(playerid, "U¿yj /respawnplayer [ID/Nick]");
+    if(sscanf(params, "k<fix>", v)) return sendTipMessage(playerid, "UÂ¿yj /respawnplayer [ID/Nick]");
     if(!IsPlayerConnected(v)) return sendErrorMessage(playerid, "Niepoprawne ID gracza.");
 
     //czynnosci
@@ -51,9 +51,9 @@ command_respawnplayer_Impl(playerid, params[256])
 	}
     //wiadomosci
     new str[128];
-    format(str, 128, "$System$ » Zosta³eœ zrespawnowany przez admina %s", GetNickEx(playerid));
+    format(str, 128, "$System$ Â» ZostaÂ³eÅ“ zrespawnowany przez admina %s", GetNickEx(playerid));
     SendClientMessage(v, COLOR_LIGHTGREEN, str);
-    format(str, 128, "$System$ » Zrespawnowa³eœ gracza o nicku %s", GetNick(v));
+    format(str, 128, "$System$ Â» ZrespawnowaÂ³eÅ“ gracza o nicku %s", GetNick(v));
     SendClientMessage(playerid, COLOR_LIGHTGREEN, str);
     
     SetPlayerSpawn(v);
@@ -63,11 +63,11 @@ command_respawnplayer_Impl(playerid, params[256])
 
 YCMD:spawnplayer(playerid, params[], help)
 {
-    if(PlayerInfo[playerid][pAdmin] < 1 && PlayerInfo[playerid][pNewAP] < 1) return 1;
+    if(PlayerInfo[playerid][pAdmin] < 1 && PlayerInfo[playerid][pNewAP] < 1 && !Zaufany(playerid)) return 1;
 
 
     new giveplayerid;
-    if(sscanf(params, "k<fix>", giveplayerid)) return sendTipMessage(playerid, "U¿yj /spawnplayer [ID/Nick]");
+    if(sscanf(params, "k<fix>", giveplayerid)) return sendTipMessage(playerid, "UÂ¿yj /spawnplayer [ID/Nick]");
 
     SpawnPlayer(giveplayerid);
     return 1;
