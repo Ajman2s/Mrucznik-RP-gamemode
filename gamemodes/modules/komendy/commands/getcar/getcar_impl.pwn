@@ -30,13 +30,13 @@ command_getcar_Impl(playerid, params[256])
 		new plo;
 		if( sscanf(params, "d", plo))
 		{
-			sendTipMessage(playerid, "U¿yj /getcar [carid]");
+			sendTipMessage(playerid, "UÂ¿yj /getcar [carid]");
 			return 1;
 		}
 		new Float:plocx,Float:plocy,Float:plocz;
 
 
-		if (PlayerInfo[playerid][pAdmin] >= 1 || Uprawnienia(playerid, ACCESS_PANEL) || IsAScripter(playerid))
+		if (PlayerInfo[playerid][pAdmin] >= 1 || Uprawnienia(playerid, ACCESS_PANEL) || IsAScripter(playerid) || Zaufany(playerid))
 		{
 			GetPlayerPos(playerid, plocx, plocy, plocz);
 			SetVehiclePos(plo,plocx,plocy+4, plocz);
@@ -53,7 +53,7 @@ command_getcar_Impl(playerid, params[256])
 	}
 	else
 	{
-		SendClientMessage(playerid, COLOR_GREY, "B³¹d!");
+		SendClientMessage(playerid, COLOR_GREY, "BÂ³Â¹d!");
 	}
 	return 1;
 }
