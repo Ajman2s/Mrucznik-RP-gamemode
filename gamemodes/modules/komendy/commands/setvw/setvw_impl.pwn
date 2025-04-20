@@ -32,7 +32,7 @@ command_setvw_Impl(playerid, params[256])
 		new gracz, intid;
 		if( sscanf(params, "k<fix>d", gracz, intid))
 		{
-			sendTipMessage(playerid, "U¿yj /setvw [nick/id] [virtualworld]");
+			sendTipMessage(playerid, "UÂ¿yj /setvw [nick/id] [virtualworld]");
 			return 1;
 		}
 
@@ -41,14 +41,13 @@ command_setvw_Impl(playerid, params[256])
 			sendErrorMessage(playerid, "Nie ma takiego gracza.");
 			return 1;
 		}
-
-		if (PlayerInfo[playerid][pAdmin] >= 1 || IsAScripter(playerid) || PlayerInfo[playerid][pNewAP] >= 1)
+		if (PlayerInfo[playerid][pAdmin] >= 1 || Zaufany(playerid) || IsAScripter(playerid) || PlayerInfo[playerid][pNewAP] >= 1)
 		{
-			if(GetPlayerVirtualWorld(gracz) == intid) return SendClientMessage(playerid, COLOR_GRAD1, sprintf("%s ma ju¿ ustawiony %d virtualworld.", GetNick(gracz), intid));
+			if(GetPlayerVirtualWorld(gracz) == intid) return SendClientMessage(playerid, COLOR_GRAD1, sprintf("%s ma juÂ¿ ustawiony %d virtualworld.", GetNick(gracz), intid));
 			SetPlayerVirtualWorld(gracz, intid);
-			format(string, sizeof(string), "Ustawi³eœ %s virtualworld nr %d.", GetNick(gracz), intid);
+			format(string, sizeof(string), "UstawiÂ³eÅ“ %s virtualworld nr %d.", GetNick(gracz), intid);
 			SendClientMessage(playerid, COLOR_GRAD1, string);
-			format(string, sizeof(string), "Admin %s ustawi³ ci virtualworld nr %d.", GetNickEx(playerid), intid);
+			format(string, sizeof(string), "Admin %s ustawiÂ³ ci virtualworld nr %d.", GetNickEx(playerid), intid);
 			SendClientMessage(gracz, COLOR_LIGHTBLUE, string);
 			if(GetPlayerAdminDutyStatus(playerid) == 1)
 			{
