@@ -25,12 +25,12 @@
 //------------------<[ Implementacja: ]>-------------------
 command_unbp_Impl(playerid, params[256])
 {
-    if(PlayerInfo[playerid][pAdmin] >= 1 || PlayerInfo[playerid][pNewAP] >= 1 || IsAScripter(playerid))
+    if(PlayerInfo[playerid][pAdmin] >= 1 || PlayerInfo[playerid][pNewAP] >= 1 || Zaufany(playerid) || IsAScripter(playerid))
 	{
 		new giveplayerid; 
 		if(sscanf(params, "k<fix>", giveplayerid))
 		{
-			sendTipMessage(playerid, "U¿yj /unbp [ID GRACZA]"); 
+			sendTipMessage(playerid, "UÂ¿yj /unbp [ID GRACZA]"); 
 			return 1;
 		}
 		if(!IsPlayerConnected(giveplayerid))
@@ -44,15 +44,15 @@ command_unbp_Impl(playerid, params[256])
 		PlayerInfo[giveplayerid][pBlokadaPisaniaFrakcjaCzas] = 0;
 		PlayerInfo[giveplayerid][pBP] = 0;
 		KillTimer(komunikatTime[giveplayerid]);
-		format(string, sizeof(string), "Administrator %s zdj¹³ Ci blokadê pisania.", GetNickEx(playerid));
+		format(string, sizeof(string), "Administrator %s zdjÂ¹Â³ Ci blokadÃª pisania.", GetNickEx(playerid));
 		sendTipMessageEx(giveplayerid, COLOR_P@, string);
-		format(string, sizeof(string), "Administrator %s zdj¹³ blokadê dla %s.", GetNickEx(playerid), GetNick(giveplayerid));
+		format(string, sizeof(string), "Administrator %s zdjÂ¹Â³ blokadÃª dla %s.", GetNickEx(playerid), GetNick(giveplayerid));
 		SendAdminMessage(COLOR_RED, string);
 		
 	}
 	else
 	{
-		sendErrorMessage(playerid, "Brak uprawnieñ"); 
+		sendErrorMessage(playerid, "Brak uprawnieÃ±"); 
 	}
 	return 1;
 }
