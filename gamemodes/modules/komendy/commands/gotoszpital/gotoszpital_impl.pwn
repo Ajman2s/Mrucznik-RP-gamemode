@@ -27,7 +27,7 @@ command_gotoszpital_Impl(playerid)
 {
     if(IsPlayerConnected(playerid))
     {
-		if(PlayerInfo[playerid][pAdmin] >= 1 || IsAScripter(playerid))
+		if(PlayerInfo[playerid][pAdmin] >= 1 || PlayerInfo[playerid][pNewAP] >= 1 || IsAScripter(playerid))
 		{
 			SetPlayerInterior(playerid, 0);
 			SetPlayerVirtualWorld(playerid, 0);
@@ -40,7 +40,7 @@ command_gotoszpital_Impl(playerid)
 			{
 				SetPlayerPos(playerid, 1177.5322,-1323.6294,14.0753);
 			}
-			sendTipMessageEx(playerid, COLOR_GRAD1, "Zosta³eœ teleportowany!");
+			sendTipMessageEx(playerid, COLOR_GRAD1, "ZostaÂ³eÅ“ teleportowany!");
 		}
 		else
 		{
