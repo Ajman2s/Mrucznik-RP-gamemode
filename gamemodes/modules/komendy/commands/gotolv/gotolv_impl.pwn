@@ -27,7 +27,7 @@ command_gotolv_Impl(playerid)
 {
     if(IsPlayerConnected(playerid))
     {
-		if (PlayerInfo[playerid][pAdmin] >= 1 || IsAScripter(playerid))
+		if(PlayerInfo[playerid][pAdmin] >= 1 || PlayerInfo[playerid][pNewAP] >= 1 || IsAScripter(playerid))
 		{
 			SetPlayerInterior(playerid, 0);
 			SetPlayerVirtualWorld(playerid, 0);
@@ -40,7 +40,7 @@ command_gotolv_Impl(playerid)
 			{
 				SetPlayerPos(playerid, 1699.2,1435.1, 10.7);
 			}
-			sendTipMessageEx(playerid, COLOR_GRAD1, "Zosta³eœ teleportowany!");
+			sendTipMessageEx(playerid, COLOR_GRAD1, "ZostaÂ³eÅ“ teleportowany!");
 		}
 		else
 		{
